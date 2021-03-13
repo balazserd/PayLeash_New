@@ -3,10 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6619257425FA3B5C002F4D2A /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 6619257325FA3B5C002F4D2A /* Introspect */; };
+		6619257C25FA3C45002F4D2A /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6619257B25FA3C45002F4D2A /* PageScrollView.swift */; };
+		6622391E25F951F800CDFB7B /* AccountTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6622391D25F951F800CDFB7B /* AccountTab.swift */; };
+		6622392325F952B000CDFB7B /* PayLeashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6622392225F952B000CDFB7B /* PayLeashApp.swift */; };
+		665408C525F21DAB00125A4F /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665408C425F21DAB00125A4F /* View+Extensions.swift */; };
+		665408CE25F29AA700125A4F /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 665408CD25F29AA700125A4F /* SwiftDate */; };
+		665408D625F2A4EE00125A4F /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665408D525F2A4EE00125A4F /* Date+Extensions.swift */; };
+		665D624325E5657400E6D42A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 665D624225E5657400E6D42A /* Colors.xcassets */; };
+		665D624825E5676900E6D42A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665D624725E5676900E6D42A /* Colors.swift */; };
+		665D625425E5761300E6D42A /* TransactionBudgetLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665D625325E5761300E6D42A /* TransactionBudgetLine.swift */; };
+		665D625A25E5769F00E6D42A /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665D625925E5769F00E6D42A /* Budget.swift */; };
+		665D626525E576D300E6D42A /* BudgetInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665D626425E576D300E6D42A /* BudgetInterval.swift */; };
+		665D626A25E5771300E6D42A /* TransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665D626925E5771300E6D42A /* TransactionCategory.swift */; };
+		665EA4E625FD094800F4AC98 /* PageScrollView+Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665EA4E525FD094800F4AC98 /* PageScrollView+Controller.swift */; };
+		665EA4EB25FD10C200F4AC98 /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665EA4EA25FD10C200F4AC98 /* Combine+Extensions.swift */; };
+		66A7AF1125E6C92900AB780B /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A7AF1025E6C92900AB780B /* Formatters.swift */; };
+		66C987BC25E5B02900E0DE78 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C987BB25E5B02900E0DE78 /* Transitions.swift */; };
 		66F9002225E56411009F961F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9002125E56411009F961F /* AppDelegate.swift */; };
 		66F9002425E56411009F961F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9002325E56411009F961F /* SceneDelegate.swift */; };
 		66F9002625E56411009F961F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9002525E56411009F961F /* ContentView.swift */; };
@@ -16,6 +33,7 @@
 		66F9003125E56413009F961F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F9002F25E56413009F961F /* LaunchScreen.storyboard */; };
 		66F9003C25E56413009F961F /* PayLeashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9003B25E56413009F961F /* PayLeashTests.swift */; };
 		66F9004725E56413009F961F /* PayLeashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9004625E56413009F961F /* PayLeashUITests.swift */; };
+		66F9005925E56436009F961F /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9005825E56436009F961F /* TransactionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +54,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6619257B25FA3C45002F4D2A /* PageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
+		6622391D25F951F800CDFB7B /* AccountTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTab.swift; sourceTree = "<group>"; };
+		6622392225F952B000CDFB7B /* PayLeashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayLeashApp.swift; sourceTree = "<group>"; };
+		665408C425F21DAB00125A4F /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		665408D525F2A4EE00125A4F /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		665D624225E5657400E6D42A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		665D624725E5676900E6D42A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		665D625325E5761300E6D42A /* TransactionBudgetLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBudgetLine.swift; sourceTree = "<group>"; };
+		665D625925E5769F00E6D42A /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		665D626425E576D300E6D42A /* BudgetInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetInterval.swift; sourceTree = "<group>"; };
+		665D626925E5771300E6D42A /* TransactionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategory.swift; sourceTree = "<group>"; };
+		665EA4E525FD094800F4AC98 /* PageScrollView+Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageScrollView+Controller.swift"; sourceTree = "<group>"; };
+		665EA4EA25FD10C200F4AC98 /* Combine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
+		66A7AF1025E6C92900AB780B /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		66C987BB25E5B02900E0DE78 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		66F9001E25E56411009F961F /* PayLeash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayLeash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F9002125E56411009F961F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66F9002325E56411009F961F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +84,7 @@
 		66F9004225E56413009F961F /* PayLeashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayLeashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F9004625E56413009F961F /* PayLeashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayLeashUITests.swift; sourceTree = "<group>"; };
 		66F9004825E56413009F961F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66F9005825E56436009F961F /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665408CE25F29AA700125A4F /* SwiftDate in Frameworks */,
+				6619257425FA3B5C002F4D2A /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +114,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6622394B25F954C900CDFB7B /* App Lifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				66F9002125E56411009F961F /* AppDelegate.swift */,
+				66F9002325E56411009F961F /* SceneDelegate.swift */,
+				6622392225F952B000CDFB7B /* PayLeashApp.swift */,
+			);
+			path = "App Lifecycle";
+			sourceTree = "<group>";
+		};
+		6622394F25F95AC100CDFB7B /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				6619257B25FA3C45002F4D2A /* PageScrollView.swift */,
+				665EA4E525FD094800F4AC98 /* PageScrollView+Controller.swift */,
+			);
+			path = PageView;
+			sourceTree = "<group>";
+		};
+		665D625825E5769300E6D42A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				665D625925E5769F00E6D42A /* Budget.swift */,
+				665D626425E576D300E6D42A /* BudgetInterval.swift */,
+				665D626925E5771300E6D42A /* TransactionCategory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		66C987BA25E5B01A00E0DE78 /* SwiftUI Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6622394F25F95AC100CDFB7B /* PageView */,
+				66C987BB25E5B02900E0DE78 /* Transitions.swift */,
+				66A7AF1025E6C92900AB780B /* Formatters.swift */,
+				665408C425F21DAB00125A4F /* View+Extensions.swift */,
+				665408D525F2A4EE00125A4F /* Date+Extensions.swift */,
+				665EA4EA25FD10C200F4AC98 /* Combine+Extensions.swift */,
+			);
+			path = "SwiftUI Extensions";
+			sourceTree = "<group>";
+		};
 		66F9001525E56411009F961F = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +179,18 @@
 		66F9002025E56411009F961F /* PayLeash */ = {
 			isa = PBXGroup;
 			children = (
-				66F9002125E56411009F961F /* AppDelegate.swift */,
-				66F9002325E56411009F961F /* SceneDelegate.swift */,
+				6622394B25F954C900CDFB7B /* App Lifecycle */,
+				66C987BA25E5B01A00E0DE78 /* SwiftUI Extensions */,
+				665D625825E5769300E6D42A /* Model */,
+				66F9005725E56422009F961F /* Accounts Tab */,
 				66F9002525E56411009F961F /* ContentView.swift */,
 				66F9002A25E56413009F961F /* Assets.xcassets */,
 				66F9002F25E56413009F961F /* LaunchScreen.storyboard */,
 				66F9003225E56413009F961F /* Info.plist */,
 				66F9002725E56411009F961F /* PayLeash.xcdatamodeld */,
 				66F9002C25E56413009F961F /* Preview Content */,
+				665D624225E5657400E6D42A /* Colors.xcassets */,
+				665D624725E5676900E6D42A /* Colors.swift */,
 			);
 			path = PayLeash;
 			sourceTree = "<group>";
@@ -139,6 +221,16 @@
 			path = PayLeashUITests;
 			sourceTree = "<group>";
 		};
+		66F9005725E56422009F961F /* Accounts Tab */ = {
+			isa = PBXGroup;
+			children = (
+				66F9005825E56436009F961F /* TransactionView.swift */,
+				665D625325E5761300E6D42A /* TransactionBudgetLine.swift */,
+				6622391D25F951F800CDFB7B /* AccountTab.swift */,
+			);
+			path = "Accounts Tab";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +247,10 @@
 			dependencies = (
 			);
 			name = PayLeash;
+			packageProductDependencies = (
+				665408CD25F29AA700125A4F /* SwiftDate */,
+				6619257325FA3B5C002F4D2A /* Introspect */,
+			);
 			productName = PayLeash;
 			productReference = 66F9001E25E56411009F961F /* PayLeash.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +322,10 @@
 				Base,
 			);
 			mainGroup = 66F9001525E56411009F961F;
+			packageReferences = (
+				665408CC25F29AA700125A4F /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				6619257225FA3B5C002F4D2A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+			);
 			productRefGroup = 66F9001F25E56411009F961F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -243,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66F9003125E56413009F961F /* LaunchScreen.storyboard in Resources */,
+				665D624325E5657400E6D42A /* Colors.xcassets in Resources */,
 				66F9002E25E56413009F961F /* Preview Assets.xcassets in Resources */,
 				66F9002B25E56413009F961F /* Assets.xcassets in Resources */,
 			);
@@ -270,9 +371,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				66F9002925E56411009F961F /* PayLeash.xcdatamodeld in Sources */,
+				665D624825E5676900E6D42A /* Colors.swift in Sources */,
+				665D626525E576D300E6D42A /* BudgetInterval.swift in Sources */,
+				665D625A25E5769F00E6D42A /* Budget.swift in Sources */,
+				665D626A25E5771300E6D42A /* TransactionCategory.swift in Sources */,
+				6622392325F952B000CDFB7B /* PayLeashApp.swift in Sources */,
+				665D625425E5761300E6D42A /* TransactionBudgetLine.swift in Sources */,
+				66A7AF1125E6C92900AB780B /* Formatters.swift in Sources */,
+				6622391E25F951F800CDFB7B /* AccountTab.swift in Sources */,
 				66F9002225E56411009F961F /* AppDelegate.swift in Sources */,
+				665EA4E625FD094800F4AC98 /* PageScrollView+Controller.swift in Sources */,
+				66F9005925E56436009F961F /* TransactionView.swift in Sources */,
+				665408D625F2A4EE00125A4F /* Date+Extensions.swift in Sources */,
+				665408C525F21DAB00125A4F /* View+Extensions.swift in Sources */,
+				66C987BC25E5B02900E0DE78 /* Transitions.swift in Sources */,
 				66F9002425E56411009F961F /* SceneDelegate.swift in Sources */,
+				6619257C25FA3C45002F4D2A /* PageScrollView.swift in Sources */,
 				66F9002625E56411009F961F /* ContentView.swift in Sources */,
+				665EA4EB25FD10C200F4AC98 /* Combine+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -384,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -601,6 +719,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6619257225FA3B5C002F4D2A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+		665408CC25F29AA700125A4F /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6619257325FA3B5C002F4D2A /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6619257225FA3B5C002F4D2A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+		665408CD25F29AA700125A4F /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 665408CC25F29AA700125A4F /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		66F9002725E56411009F961F /* PayLeash.xcdatamodeld */ = {
