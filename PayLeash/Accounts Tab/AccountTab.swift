@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct AccountTab: View {
-    @State private var selectedItemId: Int = 0
+    @State private var selectedPageNumber: Int = 0
     
     var body: some View {
-        TabView(selection: $selectedItemId) {
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.green, lineWidth: 3)
-                .frame(width: 200, height: 155)
-                .tag(0)
-            RoundedRectangle(cornerRadius: 8)
-                .frame(width: 200, height: 155)
-                .tag(1)
-            RoundedRectangle(cornerRadius: 8)
-                .frame(width: 200, height: 155)
-                .tag(2)
-        }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+        NavigationView {
+            VStack {
+                PageScrollView(selectedPageNumber: $selectedPageNumber,
+                               views: Array(repeating: AnyView(AccountCardView(model: AccountCardView.Model())), count: 5))
+                    .frame(height: 160)
+                
+                ScrollView {
+                    
+                }
+            }
+            .navigationBarTitle("Accounts")
+        }
     }
 }
 

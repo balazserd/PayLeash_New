@@ -45,8 +45,8 @@ extension PageScrollView {
             
             self.view.addSubview(scrollView)
             
-            let insetSize: CGFloat = 25
-            let spacing: CGFloat = 30
+            let insetSize: CGFloat = 45
+            let spacing: CGFloat = 25
             let originalFrame = scrollView.frame
             scrollView.frame = CGRect(origin: CGPoint(x: originalFrame.origin.x + insetSize,
                                                       y: originalFrame.origin.y),
@@ -68,6 +68,8 @@ extension PageScrollView {
                 hostingController.view.frame.size.width = scrollViewWidth - spacing
                 hostingController.view.frame.size.height = scrollView.frame.size.height
                 hostingController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                hostingController.view.transform = CGAffineTransform.identity
+                    .scaledBy(x: 0.85, y: 0.85)
             }
         }
         
@@ -76,6 +78,9 @@ extension PageScrollView {
             
             scrollView.contentSize = CGSize(width: subViewCountAsCGFloat * scrollView.frame.size.width,
                                             height: scrollView.frame.size.height)
+            
+            //immediately set correct scale sizes for all subviews.
+            scrollViewDidScroll(scrollView)
         }
         
         //MARK:- Responding to outer events
@@ -110,5 +115,18 @@ extension PageScrollView.PageScrollViewController : UIScrollViewDelegate {
         let shownPageNumber = Int(round(scrollView.contentOffset.x / scrollView.frame.size.width))
         print(shownPageNumber)
         selectedPageNumber.send(shownPageNumber)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let visibleSubviews = scrollView.subviews
+            .filter { $0.frame.intersects(scrollView.bounds) }
+        
+        //This will achieve the feeling of the side views "growing" when becoming the middle one and "shrinking" when moving to one of the sides.
+        visibleSubviews.forEach {
+            let shrinkPercent = 0.85 + 0.2 * min(min($0.frame.maxX - scrollView.bounds.minX, scrollView.bounds.maxX - $0.frame.minX) / $0.frame.width, 1.0)
+            
+            $0.transform = CGAffineTransform.identity
+                .scaledBy(x: shrinkPercent, y: shrinkPercent)
+        }
     }
 }

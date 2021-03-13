@@ -24,4 +24,18 @@ extension NumberFormatter {
         
         return formatter
     }
+    
+    static let regularNumberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .decimal
+        
+        return formatter
+    }()
+    
+    func string(from value: Double) -> String? {
+        self.string(from: NSNumber(value: value))
+    }
 }
