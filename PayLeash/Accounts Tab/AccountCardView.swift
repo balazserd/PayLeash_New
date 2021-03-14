@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct AccountCardView: View {
-    @ObservedObject var model: Model
+    var model: Model
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(model.bankName)
+        VStack(alignment: .leading, spacing: 8) {
+            Text(model.account.bankName!)
                 .font(.system(size: 13))
                 .foregroundColor(.white)
                 
@@ -21,7 +21,7 @@ struct AccountCardView: View {
                     .frame(height: 40)
                     .padding(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: -13))
                 
-                Text(model.accountName)
+                Text(model.account.name!)
                     .font(.system(size: 17, weight: .bold))
                     .foregroundColor(.white)
             }
@@ -31,7 +31,7 @@ struct AccountCardView: View {
             HStack(alignment: .firstTextBaseline) {
                 Spacer()
                 
-                Text(model.currencyShortString)
+                Text(model.account.currency!.shortName!)
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(.white)
                 
@@ -40,7 +40,7 @@ struct AccountCardView: View {
                     .foregroundColor(.white)
             }
         }
-        .padding(EdgeInsets(top: 8, leading: 10, bottom: 13, trailing: 13))
+        .padding(EdgeInsets(top: 8, leading: 10, bottom: 10, trailing: 13))
         .background(
             RoundedRectangle(cornerRadius: 8)
                 .fill(Colors.Green.typed(.cardBackgroundGreen))
@@ -50,18 +50,13 @@ struct AccountCardView: View {
     }
 }
 
-extension AccountCardView {
-    class Model: ObservableObject {
-        var bankName: String = "OTP Bank"
-        var accountName: String = "Student+ Account"
-        var balance: Double = 3_245_117
-        var currencyShortString: String = "HUF"
-    }
-}
-
 struct AccountCardView_Previews: PreviewProvider {
+    static var account: Account {
+        return generateUnsavedMockData().0[0]
+    }
+    
     static var previews: some View {
-        AccountCardView(model: AccountCardView.Model())
+        AccountCardView(model: AccountCardView.Model(account: account))
             .frame(width: 265)
     }
 }

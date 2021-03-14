@@ -9,9 +9,17 @@ import UIKit
 import CoreData
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    /// The shared AppDelegate instance.
+    ///
+    /// This property is accessible in SwiftUI lifecycle apps and correctly returns a UIApplicationDelegate instance.
+    static private(set) var sharedInstance: AppDelegate! = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Self.sharedInstance = self
+        
+        generateUnsavedMockData()
+        
         return true
     }
 

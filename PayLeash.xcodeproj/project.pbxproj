@@ -30,6 +30,8 @@
 		66A3C44425FE2B7600A67A6D /* TransactionCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3C43C25FE2B7600A67A6D /* TransactionCategory+CoreDataProperties.swift */; };
 		66A3C44525FE2B7600A67A6D /* Currency+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3C43D25FE2B7600A67A6D /* Currency+CoreDataClass.swift */; };
 		66A3C44625FE2B7600A67A6D /* Currency+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3C43E25FE2B7600A67A6D /* Currency+CoreDataProperties.swift */; };
+		66A3C45825FE438600A67A6D /* CoreData+ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3C45725FE438600A67A6D /* CoreData+ExampleData.swift */; };
+		66A3C46025FE47FC00A67A6D /* AccountCardView+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3C45F25FE47FC00A67A6D /* AccountCardView+Model.swift */; };
 		66A7AF1125E6C92900AB780B /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A7AF1025E6C92900AB780B /* Formatters.swift */; };
 		66C987BC25E5B02900E0DE78 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C987BB25E5B02900E0DE78 /* Transitions.swift */; };
 		66F9002225E56411009F961F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9002125E56411009F961F /* AppDelegate.swift */; };
@@ -83,6 +85,8 @@
 		66A3C43C25FE2B7600A67A6D /* TransactionCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		66A3C43D25FE2B7600A67A6D /* Currency+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+CoreDataClass.swift"; sourceTree = "<group>"; };
 		66A3C43E25FE2B7600A67A6D /* Currency+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		66A3C45725FE438600A67A6D /* CoreData+ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+ExampleData.swift"; sourceTree = "<group>"; };
+		66A3C45F25FE47FC00A67A6D /* AccountCardView+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountCardView+Model.swift"; sourceTree = "<group>"; };
 		66A7AF1025E6C92900AB780B /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		66C987BB25E5B02900E0DE78 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		66F9001E25E56411009F961F /* PayLeash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayLeash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +156,7 @@
 		665D625825E5769300E6D42A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				66A3C45625FE437300A67A6D /* Example Data */,
 				66A3C43725FE2B7600A67A6D /* Account+CoreDataClass.swift */,
 				66A3C43825FE2B7600A67A6D /* Account+CoreDataProperties.swift */,
 				66A3C43925FE2B7600A67A6D /* BalanceChange+CoreDataClass.swift */,
@@ -164,6 +169,14 @@
 				665D626425E576D300E6D42A /* BudgetInterval.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		66A3C45625FE437300A67A6D /* Example Data */ = {
+			isa = PBXGroup;
+			children = (
+				66A3C45725FE438600A67A6D /* CoreData+ExampleData.swift */,
+			);
+			path = "Example Data";
 			sourceTree = "<group>";
 		};
 		66C987BA25E5B01A00E0DE78 /* SwiftUI Extensions */ = {
@@ -251,6 +264,7 @@
 				665D625325E5761300E6D42A /* TransactionBudgetLine.swift */,
 				6622391D25F951F800CDFB7B /* AccountTab.swift */,
 				66A3C42F25FD435F00A67A6D /* AccountCardView.swift */,
+				66A3C45F25FE47FC00A67A6D /* AccountCardView+Model.swift */,
 			);
 			path = "Accounts Tab";
 			sourceTree = "<group>";
@@ -395,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66F9002925E56411009F961F /* PayLeash.xcdatamodeld in Sources */,
+				66A3C45825FE438600A67A6D /* CoreData+ExampleData.swift in Sources */,
 				665D624825E5676900E6D42A /* Colors.swift in Sources */,
 				665D626525E576D300E6D42A /* BudgetInterval.swift in Sources */,
 				665D625A25E5769F00E6D42A /* Budget.swift in Sources */,
@@ -405,6 +420,7 @@
 				6622391E25F951F800CDFB7B /* AccountTab.swift in Sources */,
 				66F9002225E56411009F961F /* AppDelegate.swift in Sources */,
 				66A3C43025FD435F00A67A6D /* AccountCardView.swift in Sources */,
+				66A3C46025FE47FC00A67A6D /* AccountCardView+Model.swift in Sources */,
 				665EA4E625FD094800F4AC98 /* PageScrollView+Controller.swift in Sources */,
 				66A3C44025FE2B7600A67A6D /* Account+CoreDataProperties.swift in Sources */,
 				66F9005925E56436009F961F /* TransactionView.swift in Sources */,

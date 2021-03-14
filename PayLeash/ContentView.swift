@@ -14,7 +14,6 @@ struct ContentView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor : UIColor(Colors.Green.typed(.prominentGreen))
         ]
-        
         UINavigationBar.appearance().backgroundColor = UIColor(Colors.Gray.typed(.extraLightGray))
     }
     
@@ -25,10 +24,14 @@ struct ContentView: View {
             
             TabView {
                 AccountTab()
-                    .offset(x: 0, y: -1)
-                    .tag(1)
+                    .offset(x: 0, y: -1) //1
+                    .tabItem {
+                        Image(systemName: "creditcard.fill")
+                        Text("Accounts")
+                    }
             }
-            .offset(x: 0, y: 1)
+            .accentColor(Colors.Green.typed(.mediumGreen))
+            .offset(x: 0, y: 1) //1
         }
     }
 }
@@ -38,3 +41,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+//MARK:- Notes
+
+//1: -This hack is needed to extend the background color to the safe area.

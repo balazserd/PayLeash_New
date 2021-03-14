@@ -21,7 +21,7 @@ extension Account {
     @NSManaged public var name: String?
     @NSManaged public var number: String?
     @NSManaged public var currency: Currency?
-    @NSManaged public var transactions: NSSet?
+    @NSManaged public var transactions: Set<BalanceChange>?
 
 }
 
