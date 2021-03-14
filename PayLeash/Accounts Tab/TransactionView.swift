@@ -10,19 +10,20 @@ import Combine
 import SwiftDate
 
 struct TransactionView: View {
-    @ObservedObject var model: ViewModel
+    @ObservedObject var model: Model
+    
     @State private var selected: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
-                Text(model.categoryName)
+                Text(model.balanceChange.category!.name!)
                     .font(.system(size: 14))
                     .foregroundColor(.secondary)
                 Spacer()
                 
                 if !selected {
-                    Text(model.time.toRelativeShortString())
+                    Text(model.balanceChange.time!.toRelativeShortString())
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundColor(.secondary)
                         .transition(.asymmetric(insertion: AnyTransition.opacity.animation(Animation.easeOut.delay(0.2)),
@@ -38,7 +39,7 @@ struct TransactionView: View {
                 .padding(.bottom, 4)
             
             HStack(alignment: .firstTextBaseline) {
-                Text(model.transactionName)
+                Text(model.balanceChange.title!)
                     .font(.system(size: 17, weight: .semibold))
                     .frame(maxWidth: 200, alignment: .leading)
                     .lineLimit(2)
@@ -46,7 +47,7 @@ struct TransactionView: View {
                 Spacer()
                 
                 if selected {
-                    Text(model.time.toFullDateTimeString())
+                    Text(model.balanceChange.time!.toFullDateTimeString())
                         .font(.system(size: 12))
                         .foregroundColor(.secondary)
                         .transition(.asymmetric(insertion: AnyTransition.opacity.animation(Animation.easeOut.delay(0.2)),
@@ -96,7 +97,7 @@ struct TransactionView: View {
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Colors.Green.typed(.mediumGreen),
                                 lineWidth: selected ? 1.5 : 0))
-                .shadow(x: 0, y: 2, blur: 10, spread: -4)
+                .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 1)
         )
         .onTapGesture {
             withAnimation(.linear(duration: 0.2)) {
@@ -112,9 +113,9 @@ struct TransactionView: View {
         let anchoringPoint = proxy[preference]
         
         return ZStack {
-            Text("\(NumberFormatter.currencyFormatter(for: "USD").string(for: model.transactionAmount)!)")
+            Text("\(NumberFormatter.currencyFormatter(for: "USD").string(for: model.balanceChange.amount)!)")
                 .font(.system(size: selected ? 15 : 17, weight: .bold))
-                .foregroundColor(model.transactionAmount < 0
+                .foregroundColor(model.balanceChange.amount < 0
                                     ? Colors.Red.typed(.regularRed)
                                     : Colors.Green.typed(.mediumGreen))
                 .alignmentGuide(.leading, computeValue: { d in d[self.selected ? .leading : .trailing] - anchoringPoint.x })
@@ -142,17 +143,22 @@ extension TransactionView {
 }
 
 extension TransactionView {
-    class ViewModel: ObservableObject {
-        @Published var categoryName: String = "Food & Drinks"
-        @Published var time: Date = Date() - 6.days
-        @Published var transactionName: String = "Starbucks coffee"
-        @Published var transactionAmount: Double = -9.97
+    class Model: ObservableObject {
+        @Published var balanceChange: BalanceChange! = nil
+        
+        init(balanceChange: BalanceChange) {
+            self.balanceChange = balanceChange
+        }
     }
 }
 
 struct TransactionView_Previews: PreviewProvider {
+    static var transaction: BalanceChange {
+        return generateUnsavedMockData().1[0][0]
+    }
+    
     static var previews: some View {
-        TransactionView(model: TransactionView.ViewModel())
+        TransactionView(model: TransactionView.Model(balanceChange: transaction))
             .frame(maxHeight: 300)
             .padding()
     }

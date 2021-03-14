@@ -16,11 +16,11 @@ extension View {
     /// - Parameter y: The vertical offset of the shadow.
     /// - Parameter blur: The blur radius.
     /// - Parameter spread: The spread radius. Use a negative value to reduce the shadow area concentrically.
-    func shadow(color: Color = .black, x: CGFloat = 0, y: CGFloat = 0, blur: CGFloat = 0, spread: CGFloat = 0) -> some View {
+    func shadow(color: Color = .black, x: CGFloat = 0, y: CGFloat = 0, blur: CGFloat = 0, spread: CGFloat = 0, cornerRadius: CGFloat = 8) -> some View {
         self.background(
-            RoundedRectangle(cornerRadius: 8)
+            RoundedRectangle(cornerRadius: cornerRadius)
                 .padding(-spread)
-                .shadow(radius: blur, x: x, y: y)
+                .shadow(radius: blur / 2, x: x, y: y)
         )
     }
 }

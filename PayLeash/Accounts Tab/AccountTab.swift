@@ -30,10 +30,27 @@ struct AccountTab: View {
                 transactionsHeader
                     .padding(.horizontal, 25)
                 
-                ScrollView {
+                ZStack(alignment: .top) {
+                    ScrollView {
+                        LazyVStack(spacing: 12) {
+                            ForEach(Array(accounts[selectedPageNumber].transactions!), id: \.id) {
+                                TransactionView(model: TransactionView.Model(balanceChange: $0))
+                                    .padding(.horizontal, 25)
+                            }
+                        }
+                        .padding(.top, 12)
+                    }
                     
+                    Rectangle()
+                        .fill(
+                                LinearGradient(gradient: Gradient(colors: [Colors.Gray.typed(.extraLightGray),
+                                                                           Colors.Gray.typed(.extraLightGray).opacity(0)]),
+                                               startPoint: .top, endPoint: .bottom)
+                        )
+                        .frame(height: 5)
                 }
-                .padding(.horizontal, 25)
+                .padding(.top, -2)
+                
             }
             .navigationBarTitleDisplayMode(.large)
             .navigationBarTitle("Accounts")
@@ -75,8 +92,9 @@ struct AccountTab: View {
                 .background(
                     RoundedRectangle(cornerRadius: 4)
                         .fill(Colors.Green.typed(.mediumGreen))
-                        .shadow(color: Color.gray.opacity(0.8), radius: 7, x: 0, y: 2)
                 )
+//                .shadow(color: Color.gray.opacity(0.6), radius: 4, x: 0, y: 0)
+                .shadow(color: .black, blur: 12, spread: -4, cornerRadius: 4)
             })
         }
     }

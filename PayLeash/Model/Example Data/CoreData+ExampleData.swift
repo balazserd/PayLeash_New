@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import UIKit
+import SwiftDate
 
 @discardableResult func generateUnsavedMockData() -> ([Account], [[BalanceChange]]) {
     //Currencies
@@ -61,24 +62,28 @@ import UIKit
     transaction1.amount = -12479
     transaction1.category = category1
     transaction1.title = "Books for econ class"
+    transaction1.time = Date() - 3.days
     transaction1.id = UUID()
     let transaction2 = BalanceChange(entity: NSEntityDescription.entity(forEntityName: "BalanceChange", in: moc)!, insertInto: moc)
     transaction2.account = account1
     transaction2.amount = 255319
     transaction2.category = category2
     transaction2.title = "Monthly salary"
+    transaction2.time = Date() - 4.hours
     transaction2.id = UUID()
     let transaction3 = BalanceChange(entity: NSEntityDescription.entity(forEntityName: "BalanceChange", in: moc)!, insertInto: moc)
     transaction3.account = account2
     transaction3.amount = 154.32
     transaction3.category = category3
     transaction3.title = "S&P500 March options excercise"
+    transaction3.time = Date() - 7.days + 15.hours
     transaction3.id = UUID()
     let transaction4 = BalanceChange(entity: NSEntityDescription.entity(forEntityName: "BalanceChange", in: moc)!, insertInto: moc)
     transaction4.account = account3
     transaction4.amount = 120000
     transaction4.category = category4
     transaction4.title = "Monthly transfer"
+    transaction4.time = Date() - 10.minutes
     transaction4.id = UUID()
 
     var t1 = Array(repeating: transaction1, count: 7)

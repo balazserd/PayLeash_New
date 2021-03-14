@@ -46,7 +46,7 @@ struct AccountCardView: View {
                 .fill(Colors.Green.typed(.cardBackgroundGreen))
         )
         .frame(height: 153)
-        .shadow(color: .black, x: 0, y: 3, blur: 7, spread: 0)
+        .shadow(color: .black, x: 0, y: 3, blur: 12, spread: -2)
     }
 }
 
