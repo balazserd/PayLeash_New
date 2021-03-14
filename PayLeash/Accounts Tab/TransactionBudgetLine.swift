@@ -48,7 +48,7 @@ struct TransactionBudgetLine: View {
                 .padding(1)
                 .frame(width: afterBarWidth)
             
-            Text(model.budget.category.name)
+            Text(model.budget.category.name!)
                 .font(.system(size: 12, weight: .bold))
                 .foregroundColor(shouldAlignLabelToBeginning ? Color.white : Colors.Green.typed(.mediumGreen))
                 .offset(x: shouldAlignLabelToBeginning ? 0 : beforeBarWidth, y: 0)
@@ -94,14 +94,13 @@ struct TransactionBudgetLine: View {
 
 extension TransactionBudgetLine {
     class ViewModel: ObservableObject {
-        @Published var budget: Budget = Budget(name: "Food & Drinks monthly budget",
-                                               interval: .monthly,
-                                               amount: 250.0,
-                                               category: TransactionCategory(name: "Food & Drinks",
-                                                                             iconName: "star.fill"),
-                                               beganAt: Date().addingTimeInterval(-5 * 24 * 60 * 60))
-        @Published var spentBefore: Double = 158.45
-        @Published var spentNow: Double = 8.87
+        var budget: Budget = Budget(name: "Food & Drinks monthly budget",
+                                    interval: .monthly,
+                                    amount: 250.0,
+                                    category: TransactionCategory(),
+                                    beganAt: Date().addingTimeInterval(-5 * 24 * 60 * 60))
+        var spentBefore: Double = 158.45
+        var spentNow: Double = 8.87
     }
 }
 

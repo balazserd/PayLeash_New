@@ -12,10 +12,19 @@ import Combine
 
 extension PageScrollView {
     class PageScrollViewController: UIViewController {
+        
         private var cancellableSet = Set<AnyCancellable>()
-        /// The currently selected page number. The numbering begins with 0 for the first page.
+        
+        /// The currently selected page number.
+        ///
+        /// The numbering begins with 0 for the first page.
         private(set) var selectedPageNumber = CurrentValueSubject<Int, Never>(0)
         
+        /// The subviews you wish to present in the `PageScrollView`.
+        ///
+        /// The default value of this property is `nil`.
+        ///
+        /// - Important: Not setting this value immediately after creating the `PageScrollView` is considered a programming error and could result in a runtime exception.
         var subViews: [AnyView]! = nil
         private var subViewCountAsCGFloat: CGFloat { CGFloat(subViews.count) }
         
@@ -79,7 +88,7 @@ extension PageScrollView {
             scrollView.contentSize = CGSize(width: subViewCountAsCGFloat * scrollView.frame.size.width,
                                             height: scrollView.frame.size.height)
             
-            //immediately set correct scale sizes for all subviews.
+            //Immediately set correct scale sizes for all subviews.
             scrollViewDidScroll(scrollView)
         }
         
