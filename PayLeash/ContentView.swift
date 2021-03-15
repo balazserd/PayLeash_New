@@ -36,6 +36,24 @@ struct ContentView: View {
             .bottomSheet(isShown: $showBottomSheet) {
                 VStack {
                     Text("Bottom Sheet")
+                    Text("Bottom Sheet")
+                    Text("Bottom Sheet")
+                    Text("Bottom Sheet")
+                    Text("Bottom Sheet")
+                    VStack {
+                        Text("Bottom Sheet")
+                        Text("Bottom Sheet")
+                        Text("Bottom Sheet")
+                        Text("Bottom Sheet")
+                        Text("Bottom Sheet")
+                    }
+                    VStack {
+                        Text("Bottom Sheet")
+                        Text("Bottom Sheet")
+                        Text("Bottom Sheet")
+                        Text("Bottom Sheet")
+                        Text("Bottom Sheet")
+                    }
                 }
             }
         }
