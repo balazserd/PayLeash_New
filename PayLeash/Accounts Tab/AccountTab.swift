@@ -15,6 +15,8 @@ struct AccountTab: View {
                   sortDescriptors: [NSSortDescriptor(keyPath: \Account.name, ascending: true)])
     private var accounts: FetchedResults<Account>
     
+    @Binding var showBottomSheet: Bool
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -33,7 +35,7 @@ struct AccountTab: View {
                 ZStack(alignment: .top) {
                     ScrollView {
                         LazyVStack(spacing: 12) {
-                            ForEach(Array(accounts[selectedPageNumber].transactions!), id: \.id) {
+                            ForEach(Array(accounts[selectedPageNumber].transactions!.sorted { $0.time! > $1.time! })) {
                                 TransactionView(model: TransactionView.Model(balanceChange: $0))
                                     .padding(.horizontal, 25)
                             }
@@ -78,7 +80,7 @@ struct AccountTab: View {
             
             Spacer()
             
-            Button(action: {}, label: {
+            Button(action: { showBottomSheet.toggle() }, label: {
                 HStack(spacing: 2) {
                     Text("Add")
                         .font(.system(size: 13, weight: .semibold))
@@ -93,8 +95,7 @@ struct AccountTab: View {
                     RoundedRectangle(cornerRadius: 4)
                         .fill(Colors.Green.typed(.mediumGreen))
                 )
-//                .shadow(color: Color.gray.opacity(0.6), radius: 4, x: 0, y: 0)
-                .shadow(color: .black, blur: 12, spread: -4, cornerRadius: 4)
+                .shadow(color: Color.gray.opacity(0.6), radius: 4, x: 0, y: 0)
             })
         }
     }
@@ -102,6 +103,6 @@ struct AccountTab: View {
 
 struct AccountTab_Previews: PreviewProvider {
     static var previews: some View {
-        AccountTab()
+        AccountTab(showBottomSheet: .constant(false))
     }
 }

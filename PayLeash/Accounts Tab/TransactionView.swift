@@ -80,7 +80,7 @@ struct TransactionView: View {
                     }
                     .padding(.top, 6)
                 }
-                .transition(AnyTransition.height.animation(.linear(duration: 0.2)))
+                .transition(AnyTransition.height().animation(.linear(duration: 0.2)))
                 .padding(.top, 8)
             }
         }

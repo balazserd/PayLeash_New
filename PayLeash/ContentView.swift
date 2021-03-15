@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedPage: Int = 3
+    @State private var showBottomSheet: Bool = false
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [
@@ -23,7 +24,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             TabView {
-                AccountTab()
+                AccountTab(showBottomSheet: $showBottomSheet)
                     .offset(x: 0, y: -1) //1
                     .tabItem {
                         Image(systemName: "creditcard.fill")
@@ -32,6 +33,11 @@ struct ContentView: View {
             }
             .accentColor(Colors.Green.typed(.mediumGreen))
             .offset(x: 0, y: 1) //1
+            .bottomSheet(isShown: $showBottomSheet) {
+                VStack {
+                    Text("Bottom Sheet")
+                }
+            }
         }
     }
 }

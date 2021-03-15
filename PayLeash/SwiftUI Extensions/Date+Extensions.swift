@@ -14,7 +14,7 @@ extension RelativeFormatter {
             case .shortest:
                 return Style(flavours: [.tiny, .shortTime, .narrow, .shortTime],
                              gradation: .twitter(),
-                             allowedUnits: [.now, .second, .minute, .day, .other])
+                             allowedUnits: [.now, .second, .minute, .hour, .day, .other])
         }
     }
     

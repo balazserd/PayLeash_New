@@ -32,6 +32,7 @@
 		66A3C44625FE2B7600A67A6D /* Currency+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3C43E25FE2B7600A67A6D /* Currency+CoreDataProperties.swift */; };
 		66A3C45825FE438600A67A6D /* CoreData+ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3C45725FE438600A67A6D /* CoreData+ExampleData.swift */; };
 		66A3C46025FE47FC00A67A6D /* AccountCardView+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3C45F25FE47FC00A67A6D /* AccountCardView+Model.swift */; };
+		66A3C46625FF9AF500A67A6D /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3C46525FF9AF500A67A6D /* BottomSheet.swift */; };
 		66A7AF1125E6C92900AB780B /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A7AF1025E6C92900AB780B /* Formatters.swift */; };
 		66C987BC25E5B02900E0DE78 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C987BB25E5B02900E0DE78 /* Transitions.swift */; };
 		66F9002225E56411009F961F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9002125E56411009F961F /* AppDelegate.swift */; };
@@ -87,6 +88,7 @@
 		66A3C43E25FE2B7600A67A6D /* Currency+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		66A3C45725FE438600A67A6D /* CoreData+ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+ExampleData.swift"; sourceTree = "<group>"; };
 		66A3C45F25FE47FC00A67A6D /* AccountCardView+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountCardView+Model.swift"; sourceTree = "<group>"; };
+		66A3C46525FF9AF500A67A6D /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		66A7AF1025E6C92900AB780B /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		66C987BB25E5B02900E0DE78 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		66F9001E25E56411009F961F /* PayLeash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayLeash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,9 +181,18 @@
 			path = "Example Data";
 			sourceTree = "<group>";
 		};
+		66A3C46425FF9AE600A67A6D /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				66A3C46525FF9AF500A67A6D /* BottomSheet.swift */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
 		66C987BA25E5B01A00E0DE78 /* SwiftUI Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				66A3C46425FF9AE600A67A6D /* BottomSheet */,
 				6622394F25F95AC100CDFB7B /* PageView */,
 				66C987BB25E5B02900E0DE78 /* Transitions.swift */,
 				66A7AF1025E6C92900AB780B /* Formatters.swift */,
@@ -424,6 +435,7 @@
 				665EA4E625FD094800F4AC98 /* PageScrollView+Controller.swift in Sources */,
 				66A3C44025FE2B7600A67A6D /* Account+CoreDataProperties.swift in Sources */,
 				66F9005925E56436009F961F /* TransactionView.swift in Sources */,
+				66A3C46625FF9AF500A67A6D /* BottomSheet.swift in Sources */,
 				665408D625F2A4EE00125A4F /* Date+Extensions.swift in Sources */,
 				665408C525F21DAB00125A4F /* View+Extensions.swift in Sources */,
 				66A3C44225FE2B7600A67A6D /* BalanceChange+CoreDataProperties.swift in Sources */,
