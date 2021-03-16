@@ -20,6 +20,9 @@ fileprivate struct BottomSheet<Content: View>: View {
     @GestureState private var dragY: CGFloat = 0.0
     @State private var contentHeight: CGFloat = 0.0
     
+    private var handleTopPadding: CGFloat = 10
+    private let kFullSizeCoordinateSpaceName = UUID()
+    
     var body: some View {
         GeometryReader { proxy in
             ZStack {
@@ -27,35 +30,46 @@ fileprivate struct BottomSheet<Content: View>: View {
                     Capsule()
                         .fill(Color.secondary)
                         .frame(width: 40, height: 6)
-                        .padding(.top, 10)
+                        .padding(.top, handleTopPadding)
                     
                     content
                 }
                 .anchorPreference(key: ContentHeightPreferenceKey.self, value: .bounds, transform: { proxy[$0].height })
-                .onPreferenceChange(ContentHeightPreferenceKey.self, perform: { print($0); contentHeight = $0 })
+                .onPreferenceChange(ContentHeightPreferenceKey.self, perform: { contentHeight = $0 })
                 .frame(width: UIScreen.main.bounds.width,
                        height: contentHeight + dragY + proxy.safeAreaInsets.bottom,
                        alignment: .top)
                 .background(
                     ZStack {
-                        RoundedRectangle(cornerRadius: 15)
+                        Rectangle()
                             .fill(Color.white)
-                            .shadow(color: isShown ? Color.black.opacity(0.6) : .clear, radius: 7)
+                            .cornerRadius(15, corners: [.topLeft, .topRight])
+                            .shadow(color: isShown ? Color.gray.opacity(0.6) : .clear, radius: 7)
                     }
+                )
+                .gesture(
+                    DragGesture(coordinateSpace: .named(kFullSizeCoordinateSpaceName))
+                        .updating($dragY) { value, state, _ in
+                            state = -value.translation.height
+                        }
+                        .onEnded { value in
+                            //If the drag ends lower than half the total height, close the sheet. Otherwise, snap back.
+                            if value.translation.height > contentHeight / 2 {
+                                isShown = false
+                            }
+                        }
                 )
             }
             .frame(maxHeight: .infinity, alignment: .bottom)
             .offset(y: (isShown ? 0 : contentHeight + proxy.safeAreaInsets.bottom) + proxy.safeAreaInsets.bottom)
         }
-        .gesture(
-            DragGesture()
-                .updating($dragY) { value, state, _ in
-                    state = value.startLocation.y - value.location.y
-                }
-                .onEnded { value in
-                    if value.translation.height > contentHeight / 2 {
-                        isShown = false
-                    }
+        .coordinateSpace(name: kFullSizeCoordinateSpaceName)
+        .background(
+            (isShown ? Color.gray.opacity(0.2) : Color.clear)
+                .animation(.linear(duration: 0.2))
+                .ignoresSafeArea()
+                .onTapGesture {
+                    isShown = false
                 }
         )
         .animation(.linear(duration: 0.2))
@@ -86,7 +100,7 @@ extension View {
 }
 
 struct BottomSheet_Previews: PreviewProvider {
-    @State private static var showBottomSheet: Bool = false
+    @State private static var showBottomSheet: Bool = true
     
     static var previews: some View {
         ZStack {

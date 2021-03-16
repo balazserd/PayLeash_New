@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+//MARK:- Shadows
 extension View {
     /// Draws a shadow behind your view.
     ///
@@ -22,5 +23,23 @@ extension View {
                 .padding(-spread)
                 .shadow(radius: blur / 2, x: x, y: y)
         )
+    }
+}
+
+//MARK:- Custom corner radius
+private struct RoundedCornersClipShape: Shape {
+    var radius: CGFloat
+    var corners: UIRectCorner
+    
+    func path(in rect: CGRect) -> Path {
+        let uiPath = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(uiPath.cgPath)
+    }
+}
+
+extension View {
+    
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        self.clipShape(RoundedCornersClipShape(radius: radius, corners: corners))
     }
 }
