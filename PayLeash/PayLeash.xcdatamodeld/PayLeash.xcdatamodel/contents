@@ -24,15 +24,15 @@
         <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Account" inverseName="currency" inverseEntity="Account"/>
     </entity>
     <entity name="TransactionCategory" representedClassName="TransactionCategory" syncable="YES">
-        <attribute name="iconName" optional="YES" attributeType="String"/>
+        <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BalanceChange" inverseName="category" inverseEntity="BalanceChange"/>
     </entity>
     <elements>
-        <element name="BalanceChange" positionX="-63" positionY="-18" width="128" height="119"/>
-        <element name="TransactionCategory" positionX="-54" positionY="18" width="128" height="89"/>
-        <element name="Currency" positionX="-36" positionY="45" width="128" height="104"/>
         <element name="Account" positionX="-18" positionY="72" width="128" height="119"/>
+        <element name="BalanceChange" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Currency" positionX="-36" positionY="45" width="128" height="104"/>
+        <element name="TransactionCategory" positionX="-54" positionY="18" width="128" height="89"/>
     </elements>
 </model>

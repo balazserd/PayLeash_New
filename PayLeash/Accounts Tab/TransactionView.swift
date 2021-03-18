@@ -8,11 +8,14 @@
 import SwiftUI
 import Combine
 import SwiftDate
+import Introspect
 
 struct TransactionView: View {
     @ObservedObject var model: Model
     
     @State private var selected: Bool = false
+    
+    @State private var dummySelection: Int = 2
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -58,6 +61,14 @@ struct TransactionView: View {
             .anchorPreference(key: AmountLocationPreferenceKey.self, value: .bottomTrailing, transform: {
                 [AmountLocationPreferenceKey.Data(isSelected: false, anchorPoint: $0)]
             })
+            
+            Picker("", selection: $dummySelection) {
+                Image(systemName: "arrow.down.square.fill").tag(1)
+                Image(systemName: "arrow.up.square.fill").tag(2)
+                Image(systemName: "arrow.up.arrow.down.square.fill").tag(3)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            
             
             if selected {
                 VStack(spacing: 3) {

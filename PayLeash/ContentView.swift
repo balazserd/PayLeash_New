@@ -24,7 +24,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             TabView {
-                AccountTab(showBottomSheet: $showBottomSheet)
+                AccountTab()
                     .offset(x: 0, y: -1) //1
                     .tabItem {
                         Image(systemName: "creditcard.fill")

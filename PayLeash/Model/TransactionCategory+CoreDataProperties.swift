@@ -2,7 +2,7 @@
 //  TransactionCategory+CoreDataProperties.swift
 //  PayLeash
 //
-//  Created by Balazs Erdesz on 2021. 03. 14..
+//  Created by Balazs Erdesz on 2021. 03. 18..
 //
 //
 
@@ -16,10 +16,10 @@ extension TransactionCategory {
         return NSFetchRequest<TransactionCategory>(entityName: "TransactionCategory")
     }
 
-    @NSManaged public var iconName: String?
+    @NSManaged public var icon: String?
     @NSManaged public var id: UUID?
     @NSManaged public var name: String?
-    @NSManaged public var transactions: NSSet?
+    @NSManaged public var transactions: Set<BalanceChange>?
 
 }
 

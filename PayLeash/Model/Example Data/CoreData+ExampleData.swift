@@ -41,19 +41,19 @@ import SwiftDate
     account3.id = UUID()
 
     let category1 = TransactionCategory(entity: NSEntityDescription.entity(forEntityName: "TransactionCategory", in: moc)!, insertInto: moc)
-    category1.iconName = "books.vertical.fill"
+    category1.icon = "🎓"
     category1.name = "Education"
     category1.id = UUID()
     let category2 = TransactionCategory(entity: NSEntityDescription.entity(forEntityName: "TransactionCategory", in: moc)!, insertInto: moc)
-    category2.iconName = "dollarsign.square.fill"
+    category2.icon = "💰"
     category2.name = "Income"
     category2.id = UUID()
     let category3 = TransactionCategory(entity: NSEntityDescription.entity(forEntityName: "TransactionCategory", in: moc)!, insertInto: moc)
-    category3.iconName = "chart.bar.xaxis"
+    category3.icon = "📈"
     category3.name = "Stock earnings"
     category3.id = UUID()
     let category4 = TransactionCategory(entity: NSEntityDescription.entity(forEntityName: "TransactionCategory", in: moc)!, insertInto: moc)
-    category4.iconName = "arrow.left.arrow.right"
+    category4.icon = "🔁"
     category4.name = "Transfer"
     category4.id = UUID()
 

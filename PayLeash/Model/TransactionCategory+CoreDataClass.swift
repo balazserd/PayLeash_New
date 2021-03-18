@@ -2,7 +2,7 @@
 //  TransactionCategory+CoreDataClass.swift
 //  PayLeash
 //
-//  Created by Balazs Erdesz on 2021. 03. 14..
+//  Created by Balazs Erdesz on 2021. 03. 18..
 //
 //
 

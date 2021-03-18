@@ -15,7 +15,8 @@ struct AccountTab: View {
                   sortDescriptors: [NSSortDescriptor(keyPath: \Account.name, ascending: true)])
     private var accounts: FetchedResults<Account>
     
-    @Binding var showBottomSheet: Bool
+    @State private var showBottomSheet: Bool = false
+    @State private var dummyIntState: Int = 0
     
     var body: some View {
         NavigationView {
@@ -57,6 +58,18 @@ struct AccountTab: View {
             .navigationBarTitleDisplayMode(.large)
             .navigationBarTitle("Accounts")
             .background(Colors.Gray.typed(.extraLightGray))
+            .bottomSheet(isShown: $showBottomSheet) {
+                VStack {
+                    ComplexPicker(selection: $dummyIntState,
+                                  options:
+                                    [
+                                        Text("\(Image(systemName: "arrow.down.square.fill")) Expense"),
+                                        Text("\(Image(systemName: "arrow.up.square.fill")) Income"),
+                                        Text("\(Image(systemName: "arrow.up.arrow.down.square.fill")) Both")
+                                    ])
+                }
+                .padding(10)
+            }
         }
     }
     
@@ -103,6 +116,6 @@ struct AccountTab: View {
 
 struct AccountTab_Previews: PreviewProvider {
     static var previews: some View {
-        AccountTab(showBottomSheet: .constant(false))
+        AccountTab()
     }
 }

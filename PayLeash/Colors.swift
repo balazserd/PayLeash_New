@@ -17,6 +17,7 @@ struct Colors {
     
     enum GreenColorType: String {
         case extraLightGreen
+        case lightGreen
         case backgroundGreen
         case lowMediumGreen
         case cardBackgroundGreen
