@@ -70,6 +70,9 @@ struct AccountTab: View {
                 }
                 .padding(10)
             }
+            .bottomSheet(isShown: .constant(true)) {
+                NewTransactionView()
+            }
         }
     }
     

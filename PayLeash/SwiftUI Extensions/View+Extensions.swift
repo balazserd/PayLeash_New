@@ -43,3 +43,11 @@ extension View {
         self.clipShape(RoundedCornersClipShape(radius: radius, corners: corners))
     }
 }
+
+//MARK:- Font
+extension View {
+    func systemFont(size: CGFloat, weight: Font.Weight = .regular) -> some View {
+        self
+            .font(.system(size: size, weight: weight))
+    }
+}

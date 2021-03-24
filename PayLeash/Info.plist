@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>PayLeash can help you decrease administration workload by recognizing your spoken words instead of typing words manually. Speech recognition only works while you long press on any microphone icon inside the app.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>PayLeash can help you decrease administration workload by recognizing your spoken words instead of typing words manually. Speech recognition only works while you long press on any microphone icon inside the app.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
