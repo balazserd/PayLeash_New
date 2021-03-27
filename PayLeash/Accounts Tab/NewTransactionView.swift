@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct NewTransactionView: View {
-    @ObservedObject private var model = ViewModel()
+    @ObservedObject private var model = ViewModel() //TODO change init to receive value from outside
     
     @GestureState private var gs_isRecordingUserVoice: Bool = false
+    
+    @AppStorage("didEverUseVoiceToText") private var didEverUseVoiceToText: Bool = false
+    @State private var showVoiceToTextOnboarding: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -59,7 +62,12 @@ struct NewTransactionView: View {
                                 }
                             }
                     )
-                    .onChange(of: $gs_isRecordingUserVoice.wrappedValue, perform: { value in
+                    .onTapGesture {
+                        if !didEverUseVoiceToText {
+                            showVoiceToTextOnboarding = true
+                        }
+                    }
+                    .onChange(of: gs_isRecordingUserVoice, perform: { value in
                         if !value {
                             model.shouldRecordUserVoice = false
                         }

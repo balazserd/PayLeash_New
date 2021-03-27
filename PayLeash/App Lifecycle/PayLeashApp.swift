@@ -14,7 +14,7 @@ struct PayLeashApp : App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
                 .environment(\.managedObjectContext, appDelegate.persistentContainer.viewContext)
         }
     }

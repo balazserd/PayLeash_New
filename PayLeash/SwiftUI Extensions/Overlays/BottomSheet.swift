@@ -88,13 +88,20 @@ extension BottomSheet {
 }
 
 extension View {
-    func bottomSheet<Content: View>(isShown: Binding<Bool>, @ViewBuilder content: () -> Content) -> some View {
-        ZStack {
-            self
-            
-            BottomSheet(isShown: isShown) {
-                content()
-            }
+    /// Presents a view inside a sheet, emerging from the bottom of the screen.
+    /// - Parameter isShown: The binding that controls whether the sheet is visible on the screen.
+    /// - Parameter content: The view that is shown inside the Bottom Sheet.
+    ///
+    /// - Important
+    /// This view modifier should only be used when a top-level, full-screen, **parent** view received the `.allowsFullScreenOverlays()` modifier.
+    /// Behavior is otherwise undefined and could result in a runtime exception.
+    func bottomSheet<Content: View>(isShown: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
+        self.transformPreference(FullScreenCoverPreferenceKey.self) { preferenceKey in
+            preferenceKey.append(FullScreenCoverPreferenceKey.OverlayView {
+                BottomSheet(isShown: isShown) {
+                    content()
+                }
+            })
         }
     }
 }

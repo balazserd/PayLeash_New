@@ -16,6 +16,7 @@ struct AccountTab: View {
     private var accounts: FetchedResults<Account>
     
     @State private var showBottomSheet: Bool = false
+    @State private var showBlurringOverlay: Bool = true
     @State private var dummyIntState: Int = 0
     
     var body: some View {
@@ -70,8 +71,8 @@ struct AccountTab: View {
                 }
                 .padding(10)
             }
-            .bottomSheet(isShown: .constant(true)) {
-                NewTransactionView()
+            .blurringOverlay(isShown: $showBlurringOverlay) {
+                Text("hello world!")
             }
         }
     }
