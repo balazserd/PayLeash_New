@@ -35,8 +35,6 @@ struct MainView: View {
             .offset(x: 0, y: 1) //1
         }
         .allowFullScreenOverlays()
-        .bottomSheet(isShown: .constant(false), content: { EmptyView() })
-        .blurringOverlay(isShown: .constant(false), content: { EmptyView() })
     }
 }
 
