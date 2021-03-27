@@ -30,29 +30,6 @@ struct MainView: View {
                         Image(systemName: "creditcard.fill")
                         Text("Accounts")
                     }
-                
-                NavigationView {
-                    ZStack {
-                        NavigationLink(
-                            destination:
-                                ZStack { Color.orange }
-                                    .transformPreference(FullScreenCoverPreferenceKey.self) {
-                                        $0.append(FullScreenCoverPreferenceKey.OverlayView {
-                                            //The overlay
-                                            ZStack {
-                                                Color.green
-                                                Text("I am full screen!")
-                                            }
-                                        })
-                                    },
-                            label: {
-                                Text("Press me to show full screen!")
-                            })
-                    }
-                }
-                .tabItem {
-                    Text("Tab")
-                }
             }
             .accentColor(Colors.Green.typed(.mediumGreen))
             .offset(x: 0, y: 1) //1
