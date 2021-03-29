@@ -23,6 +23,7 @@ struct Colors {
         case cardBackgroundGreen
         case mediumGreen
         case prominentGreen
+        case inputTextGreen
     }
     
     //MARK:- Red

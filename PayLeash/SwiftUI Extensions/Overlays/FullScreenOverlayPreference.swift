@@ -1,5 +1,5 @@
 //
-//  FullScreenOverlay.swift
+//  FullScreenOverlayPreference.swift
 //  PayLeash
 //
 //  Created by Balazs Erdesz on 2021. 03. 27..

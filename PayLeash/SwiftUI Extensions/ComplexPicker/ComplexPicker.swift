@@ -14,13 +14,19 @@ struct ComplexPicker: View {
     /// The array of `Text` views that are the options for the Picker.
     var options: [Text]
     
-    private let gridItems = [
-        GridItem(.flexible()),
-        GridItem(.fixed(1), spacing: 0),
-        GridItem(.flexible()),
-        GridItem(.fixed(1), spacing: 0),
-        GridItem(.flexible())
-    ]
+    private var gridItems: [GridItem]
+    
+    init(selection: Binding<Int>, options: [Text]) {
+        self._selection = selection
+        self.options = options
+        
+        self.gridItems = [GridItem]()
+        for _ in 0..<options.count {
+            self.gridItems.append(GridItem(.flexible()))
+            self.gridItems.append(GridItem(.fixed(1), spacing: 0))
+        }
+        self.gridItems.removeLast()
+    }
     
     var body: some View {
         ZStack {

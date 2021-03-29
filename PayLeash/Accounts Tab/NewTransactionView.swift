@@ -22,6 +22,8 @@ struct NewTransactionView: View {
                 .foregroundColor(Colors.Green.typed(.prominentGreen))
             
             descriptionField
+            
+            
         }
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 15))
     }
@@ -80,10 +82,15 @@ struct NewTransactionView: View {
 struct NewTransactionView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Text("")
+            Color.white
+            
+            ZStack {
+                Text("")
+            }
+            .bottomSheet(isShown: .constant(true)) {
+                NewTransactionView()
+            }
         }
-        .bottomSheet(isShown: .constant(true)) {
-            NewTransactionView()
-        }
+        .allowFullScreenOverlays()
     }
 }

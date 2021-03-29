@@ -37,7 +37,7 @@
 		66A3C46625FF9AF500A67A6D /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3C46525FF9AF500A67A6D /* BottomSheet.swift */; };
 		66A7AF1125E6C92900AB780B /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A7AF1025E6C92900AB780B /* Formatters.swift */; };
 		66C568FC260E5FF000E727F3 /* BlurringOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C568FB260E5FF000E727F3 /* BlurringOverlay.swift */; };
-		66C5690B260F296700E727F3 /* FullScreenOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C5690A260F296700E727F3 /* FullScreenOverlay.swift */; };
+		66C5690B260F296700E727F3 /* FullScreenOverlayPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C5690A260F296700E727F3 /* FullScreenOverlayPreference.swift */; };
 		66C987BC25E5B02900E0DE78 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C987BB25E5B02900E0DE78 /* Transitions.swift */; };
 		66F9002225E56411009F961F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9002125E56411009F961F /* AppDelegate.swift */; };
 		66F9002425E56411009F961F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9002325E56411009F961F /* SceneDelegate.swift */; };
@@ -51,6 +51,7 @@
 		66F9005925E56436009F961F /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9005825E56436009F961F /* TransactionView.swift */; };
 		66FAFAFC2603A9C8002D6A40 /* TransactionCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAFAFA2603A9C8002D6A40 /* TransactionCategory+CoreDataClass.swift */; };
 		66FAFAFD2603A9C8002D6A40 /* TransactionCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAFAFB2603A9C8002D6A40 /* TransactionCategory+CoreDataProperties.swift */; };
+		66FB76C12610854200273E7F /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FB76C02610854200273E7F /* CalculatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +100,7 @@
 		66A3C46525FF9AF500A67A6D /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		66A7AF1025E6C92900AB780B /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		66C568FB260E5FF000E727F3 /* BlurringOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurringOverlay.swift; sourceTree = "<group>"; };
-		66C5690A260F296700E727F3 /* FullScreenOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenOverlay.swift; sourceTree = "<group>"; };
+		66C5690A260F296700E727F3 /* FullScreenOverlayPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenOverlayPreference.swift; sourceTree = "<group>"; };
 		66C987BB25E5B02900E0DE78 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		66F9001E25E56411009F961F /* PayLeash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayLeash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F9002125E56411009F961F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 		66F9005825E56436009F961F /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		66FAFAFA2603A9C8002D6A40 /* TransactionCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		66FAFAFB2603A9C8002D6A40 /* TransactionCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		66FB76C02610854200273E7F /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +206,7 @@
 		66C56909260F293B00E727F3 /* Overlays */ = {
 			isa = PBXGroup;
 			children = (
-				66C5690A260F296700E727F3 /* FullScreenOverlay.swift */,
+				66C5690A260F296700E727F3 /* FullScreenOverlayPreference.swift */,
 				66C568FB260E5FF000E727F3 /* BlurringOverlay.swift */,
 				66A3C46525FF9AF500A67A6D /* BottomSheet.swift */,
 			);
@@ -250,6 +252,7 @@
 		66F9002025E56411009F961F /* PayLeash */ = {
 			isa = PBXGroup;
 			children = (
+				66FB76BF261080B000273E7F /* Storage */,
 				6622394B25F954C900CDFB7B /* App Lifecycle */,
 				66C987BA25E5B01A00E0DE78 /* SwiftUI Extensions */,
 				665D625825E5769300E6D42A /* Model */,
@@ -302,8 +305,16 @@
 				66A3C45F25FE47FC00A67A6D /* AccountCardView+Model.swift */,
 				66590702260B9540000A4D21 /* NewTransactionView.swift */,
 				6659070C260BA51A000A4D21 /* NewTransactionView+Model.swift */,
+				66FB76C02610854200273E7F /* CalculatorView.swift */,
 			);
 			path = "Accounts Tab";
+			sourceTree = "<group>";
+		};
+		66FB76BF261080B000273E7F /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,12 +471,13 @@
 				66F9002225E56411009F961F /* AppDelegate.swift in Sources */,
 				66A3C43025FD435F00A67A6D /* AccountCardView.swift in Sources */,
 				66A3C46025FE47FC00A67A6D /* AccountCardView+Model.swift in Sources */,
-				66C5690B260F296700E727F3 /* FullScreenOverlay.swift in Sources */,
+				66C5690B260F296700E727F3 /* FullScreenOverlayPreference.swift in Sources */,
 				665EA4E625FD094800F4AC98 /* PageScrollView+Controller.swift in Sources */,
 				66590708260B9676000A4D21 /* Text+Extensions.swift in Sources */,
 				66A3C44025FE2B7600A67A6D /* Account+CoreDataProperties.swift in Sources */,
 				66F9005925E56436009F961F /* TransactionView.swift in Sources */,
 				66A3C46625FF9AF500A67A6D /* BottomSheet.swift in Sources */,
+				66FB76C12610854200273E7F /* CalculatorView.swift in Sources */,
 				665408D625F2A4EE00125A4F /* Date+Extensions.swift in Sources */,
 				665408C525F21DAB00125A4F /* View+Extensions.swift in Sources */,
 				66A3C44225FE2B7600A67A6D /* BalanceChange+CoreDataProperties.swift in Sources */,
