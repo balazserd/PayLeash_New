@@ -40,7 +40,7 @@ struct CalculatorView: View {
                                   },
                                   operatorPadContent: {
                                     oppositeButton
-                                    destructingOperatorPad(letter: "C")
+                                    destructingOperatorButton(letter: "C")
                                   })
                     
                     calculatorRow(proxy: proxy,
@@ -166,7 +166,7 @@ struct CalculatorView: View {
         }
     }
     
-    private func destructingOperatorPad(letter: String) -> some View {
+    private func destructingOperatorButton(letter: String) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 4)
                 .fill(Colors.Red.typed(.darkRed))
@@ -207,80 +207,6 @@ struct CalculatorView_Previews: PreviewProvider {
                            doneAction: { })
             
             Spacer()
-        }
-    }
-}
-
-//MARK:- Calculation Units
-struct CalculationExpression {
-    var result: Double
-    var calculationUnits: [CalculationUnit] = []
-    
-    mutating func evaluate() {
-        while calculationUnits.count != 1 {
-            let firstHighestOrderOperatorLocation = calculationUnits.firstIndex(where: {
-                guard let operationType = $0 as? OperationType else { return false }
-                
-                return operationType.order == 1
-            })
-            
-            evaluateOperation(at: firstHighestOrderOperatorLocation ?? 1)
-            
-            //begin again
-            evaluate()
-        }
-    }
-    
-    private mutating func evaluateOperation(at index: Int) {
-        let operationType = calculationUnits[index] as! OperationType
-        let lhs = calculationUnits[index - 1] as! Double
-        let rhs = calculationUnits[index + 1] as! Double
-        
-        calculationUnits.removeSubrange(index-1...index+1)
-        calculationUnits.insert(operationType.operation(lhs, rhs), at: index - 1)
-    }
-}
-protocol CalculationUnit { }
-
-extension Double: CalculationUnit { }
-
-fileprivate enum OperationType: CalculationUnit {
-    case substract
-    case add
-    case multiply
-    case divide
-    
-    var order: Int {
-        switch self {
-            case .add, .substract: return 2
-            case .multiply, .divide: return 1
-        }
-    }
-    
-    var operation: (Double, Double) -> Double {
-        switch self {
-            case .add: return { $0 + $1 }
-            case .substract: return { $0 - $1 }
-            case .multiply: return { $0 * $1 }
-            case .divide: return { $0 / $1 }
-        }
-    }
-    
-    var iconName: String {
-        switch self {
-            case .add: return "plus"
-            case .substract: return "minus"
-            case .multiply: return "multiply"
-            case .divide: return "divide"
-        }
-    }
-    
-    var character: String {
-        switch self {
-            case .add: return "+"
-            case .substract: return "-"
-            case .multiply: return "􀅾"
-            case .divide: return "􀅿"
         }
     }
 }
