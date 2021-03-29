@@ -36,6 +36,7 @@ struct Colors {
     enum RedColorType: String {
         case fadedRed
         case regularRed
+        case darkRed
     }
     
     //MARK:- Gray
