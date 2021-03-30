@@ -19,14 +19,13 @@ struct CalculatorView: View {
     @State private var expressionString: String = ""
     private var expressionLeftHandSide: Double? = nil
     private var expressionRightHandSide: Double? = nil
-    private var calculationUnits: [CalculationUnit] = []
     
-    private let mainPadding: CGFloat = 9
+    @StateObject var motor = CalculatorMotor()
     
     var body: some View {
         GeometryReader { proxy in
             VStack {
-                Text(expressionString)
+                Text(motor.fullExpressionString)
                     .systemFont(size: 16)
                     .foregroundColor(.secondary)
                     .frame(height: 40)
@@ -68,9 +67,7 @@ struct CalculatorView: View {
                     calculatorRow(proxy: proxy,
                                   numberPadContent: {
                                     importantOperatorButton(name: "=",
-                                                            operation: {
-                                                                
-                                                            })
+                                                            operation: { motor.typeEqualSign() })
                                     numberButton(of: 0)
                                     decimalButton
                                   },
@@ -80,11 +77,13 @@ struct CalculatorView: View {
                                     }
                                   })
                 }
-                .padding(mainPadding)
                 .aspectRatio(2, contentMode: .fit)
             }
             .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 2)
         }
+        .onChange(of: motor.result, perform: { value in
+            currentResult = value
+        })
     }
     
     private func calculatorRow<NPC: View, OPC: View>(proxy: GeometryProxy,
@@ -94,7 +93,7 @@ struct CalculatorView: View {
             HStack(spacing: 10) {
                 numberPadContent()
             }
-            .frame(width: (proxy.size.width - 2 * mainPadding) * 0.65)
+            .frame(width: proxy.size.width * 0.65)
             
             HStack(spacing: 10) {
                 operatorPadContent()
@@ -112,7 +111,7 @@ struct CalculatorView: View {
                 .foregroundColor(.white)
         }
         .onTapGesture {
-            expressionString += String(number)
+            motor.type(digitOrDecimalSeparator: String(number))
         }
     }
     
@@ -126,7 +125,7 @@ struct CalculatorView: View {
                 .foregroundColor(.white)
         }
         .onTapGesture {
-            expressionString += "."
+            motor.type(digitOrDecimalSeparator: Locale.current.decimalSeparator ?? ".")
         }
     }
     
@@ -144,7 +143,7 @@ struct CalculatorView: View {
                 .foregroundColor(Colors.Green.typed(.prominentGreen))
         }
         .onTapGesture {
-            expressionString += " \(operation.character) "
+            motor.appendOperation(of: operation)
         }
     }
     
@@ -174,6 +173,9 @@ struct CalculatorView: View {
             Text("\(letter)")
                 .systemFont(size: 16, weight: .bold)
                 .foregroundColor(.white)
+        }
+        .onTapGesture {
+            motor.clear()
         }
     }
     

@@ -35,6 +35,16 @@ extension NumberFormatter {
         return formatter
     }()
     
+    static let longDecimalsNumberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 6
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .decimal
+        
+        return formatter
+    }()
+    
     func string(from value: Double) -> String? {
         self.string(from: NSNumber(value: value))
     }

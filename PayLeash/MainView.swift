@@ -18,6 +18,8 @@ struct MainView: View {
         UINavigationBar.appearance().backgroundColor = UIColor(Colors.Gray.typed(.extraLightGray))
     }
     
+    @State private var result: Double = 0.0
+    
     var body: some View {
         ZStack {
             Colors.Gray.typed(.extraLightGray)
@@ -30,6 +32,15 @@ struct MainView: View {
                         Image(systemName: "creditcard.fill")
                         Text("Accounts")
                     }
+                
+                VStack {
+                    Text("\(result)")
+                    
+                    CalculatorView(currentResult: $result, doneAction: { })
+                }
+                .tabItem {
+                    Text("calculator")
+                }
             }
             .accentColor(Colors.Green.typed(.mediumGreen))
             .offset(x: 0, y: 1) //1
