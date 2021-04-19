@@ -25,7 +25,7 @@ class CalculatorMotor: ObservableObject {
     
     /// The collection of all calculations units that await evaluation.
     ///
-    /// This array should contain `Double` elements on even and `OperationType` elements on odd indexes.
+    /// This array should contain `Double` elements on even and `OperationType` elements on odd indexes. (The array is 0-based.)
     /// Not respecting this rule results in undefined behavior and might cause a runtime exception.
     @Published private(set) var calculationUnits: [CalculationUnit] = []
     
@@ -47,7 +47,7 @@ class CalculatorMotor: ObservableObject {
     }
     
     private var higherOrderOperatorsMayExist: Bool = true
-    private var currentlyTypedNumber: String = "0"
+    private var currentlyTypedNumber: String = ""
     
     /// The full unevaluated expression, that a normal calculator would show.
     @Published var fullExpressionString: String = ""
@@ -55,29 +55,35 @@ class CalculatorMotor: ObservableObject {
     /// Attempts to attach an operation at the end of the `calculationUnits`array.
     ///
     /// - Parameter operation: The operation to attach.
-    ///
-    /// - Returns: A `Bool` value, communicating whether attachment was successful.
-    @discardableResult func appendOperation(of operation: OperationType) -> Bool {
-        //Having one number is a special case as that means the user has just pressed the equal sign.
+    func appendOperation(of operation: OperationType) {
+        if let lastOperation = calculationUnits.last as? OperationType {
+            //If a value is expected, then remove the previous operation and replace with this.
+            calculationUnits.removeLast()
+            let lastOccurrenceRangeOfOperationToRemove = fullExpressionString.range(of: lastOperation.character(withSpacesAround: true), options: .backwards)!
+            fullExpressionString.removeSubrange(lastOccurrenceRangeOfOperationToRemove)
+            
+            self.appendOperation(of: operation)
+            
+            return
+        }
+        
+        //Having one number is a special case as that means the user has just pressed the equal sign or replaced the last operation.
         if calculationUnits.count == 1 {
             calculationUnits.append(operation)
-            fullExpressionString += " \(operation.character) "
+            self.annullCurrentlyTypedNumber()
             
-            return true
+            fullExpressionString += operation.character(withSpacesAround: true)
+            
+            return
         }
         
         if acceptsValue {
             calculationUnits.append(Double(currentlyTypedNumber) ?? Double(currentlyTypedNumber.dropLast())!) //Maybe a decimalPoint was added, drop that.
-            currentlyTypedNumber = "0"
-            
-            calculationUnits.append(operation)
-            
-            fullExpressionString += " \(operation.character) "
-            
-            return true
+            self.annullCurrentlyTypedNumber()
         }
-        
-        return false
+            
+        calculationUnits.append(operation)
+        fullExpressionString += operation.character(withSpacesAround: true)
     }
     
     func type(digitOrDecimalSeparator: String) {
@@ -94,8 +100,25 @@ class CalculatorMotor: ObservableObject {
     func typeEqualSign() {
         if acceptsValue {
             calculationUnits.append(Double(currentlyTypedNumber) ?? Double(currentlyTypedNumber.dropLast())!)
-            currentlyTypedNumber = "0"
+            self.annullCurrentlyTypedNumber()
             
+            evaluate()
+        }
+    }
+    
+    func typeOpposite() {
+        if let lastRangeOfCurrentlyTypedNumber = fullExpressionString.range(of: currentlyTypedNumber, options: .backwards) {
+            currentlyTypedNumber = "-" + currentlyTypedNumber
+            fullExpressionString = fullExpressionString.replacingCharacters(in: lastRangeOfCurrentlyTypedNumber, with: currentlyTypedNumber)
+        } else {
+            //Either this is the very first number (0 calculation units) or the last button pressed was an operator before this opposite sign.
+            currentlyTypedNumber = "-" + currentlyTypedNumber
+            fullExpressionString = fullExpressionString + currentlyTypedNumber
+        }
+        
+        if calculationUnits.count == 1 {
+            //If there is only a single number in the calculator, flip the result too.
+            calculationUnits[0] = (calculationUnits[0] as! Double) * -1
             evaluate()
         }
     }
@@ -134,7 +157,6 @@ class CalculatorMotor: ObservableObject {
         let resultAsString = NumberFormatter.longDecimalsNumberFormatter.string(from: result)!
         
         fullExpressionString = resultAsString
-        currentlyTypedNumber = resultAsString
         
         higherOrderOperatorsMayExist = true
     }
@@ -145,6 +167,11 @@ class CalculatorMotor: ObservableObject {
     func clear() {
         result = 0.0
         calculationUnits = []
+        fullExpressionString = ""
+    }
+    
+    private func annullCurrentlyTypedNumber() {
+        self.currentlyTypedNumber = ""
     }
     
     private func evaluateOperation(at index: Int) {

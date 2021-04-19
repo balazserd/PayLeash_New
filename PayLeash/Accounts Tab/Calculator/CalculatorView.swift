@@ -16,10 +16,6 @@ struct CalculatorView: View {
         self.doneAction = doneAction
     }
     
-    @State private var expressionString: String = ""
-    private var expressionLeftHandSide: Double? = nil
-    private var expressionRightHandSide: Double? = nil
-    
     @StateObject var motor = CalculatorMotor()
     
     var body: some View {
@@ -28,7 +24,7 @@ struct CalculatorView: View {
                 Text(motor.fullExpressionString)
                     .systemFont(size: 16)
                     .foregroundColor(.secondary)
-                    .frame(height: 40)
+                    .frame(maxWidth: .infinity, idealHeight: 20, alignment: .leading)
                 
                 VStack {
                     calculatorRow(proxy: proxy,
@@ -79,7 +75,6 @@ struct CalculatorView: View {
                 }
                 .aspectRatio(2, contentMode: .fit)
             }
-            .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 2)
         }
         .onChange(of: motor.result, perform: { value in
             currentResult = value
@@ -93,11 +88,13 @@ struct CalculatorView: View {
             HStack(spacing: 10) {
                 numberPadContent()
             }
-            .frame(width: proxy.size.width * 0.65)
+            .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 2)
+            .frame(width: proxy.size.width * 0.62)
             
             HStack(spacing: 10) {
                 operatorPadContent()
             }
+            .shadow(color: Color.gray.opacity(0.2), radius: 5, x: 0, y: 2)
         }
     }
     
@@ -107,7 +104,7 @@ struct CalculatorView: View {
                 .fill(Colors.Green.typed(.inputTextGreen))
             
             Text("\(number)")
-                .systemFont(size: 16, weight: .bold)
+                .systemFont(size: 17, weight: .bold)
                 .foregroundColor(.white)
         }
         .onTapGesture {
@@ -121,7 +118,7 @@ struct CalculatorView: View {
                 .fill(Colors.Green.typed(.inputTextGreen))
             
             Text(".")
-                .systemFont(size: 16, weight: .bold)
+                .systemFont(size: 17, weight: .bold)
                 .foregroundColor(.white)
         }
         .onTapGesture {
@@ -132,14 +129,10 @@ struct CalculatorView: View {
     private func operatorButton(of operation: OperationType) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 4)
-                .strokeBorder(Colors.Green.typed(.prominentGreen), lineWidth: 2)
-                .background(
-                    RoundedRectangle(cornerRadius: 4)
-                        .foregroundColor(Colors.Green.typed(.backgroundGreen))
-                )
+                .fill(Colors.Green.typed(.extraLightGreen))
             
             Text("\(Image(systemName: operation.iconName))")
-                .systemFont(size: 14, weight: .bold)
+                .systemFont(size: 17, weight: .bold)
                 .foregroundColor(Colors.Green.typed(.prominentGreen))
         }
         .onTapGesture {
@@ -150,18 +143,14 @@ struct CalculatorView: View {
     private var oppositeButton: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 4)
-                .strokeBorder(Colors.Green.typed(.prominentGreen), lineWidth: 2)
-                .background(
-                    RoundedRectangle(cornerRadius: 4)
-                        .foregroundColor(Colors.Green.typed(.backgroundGreen))
-                )
+                .fill(Colors.Green.typed(.extraLightGreen))
             
             Text("\(Image(systemName: "plus.slash.minus"))")
-                .systemFont(size: 14, weight: .bold)
+                .systemFont(size: 17, weight: .bold)
                 .foregroundColor(Colors.Green.typed(.prominentGreen))
         }
         .onTapGesture {
-            expressionString += " "
+            motor.typeOpposite()
         }
     }
     
@@ -210,5 +199,6 @@ struct CalculatorView_Previews: PreviewProvider {
             
             Spacer()
         }
+        .padding()
     }
 }

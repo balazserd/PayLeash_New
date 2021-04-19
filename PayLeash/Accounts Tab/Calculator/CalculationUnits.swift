@@ -42,12 +42,14 @@ enum OperationType: CalculationUnit {
         }
     }
     
-    var character: String {
+    func character(withSpacesAround: Bool = false) -> String {
         switch self {
-            case .add: return "+"
-            case .substract: return "-"
-            case .multiply: return "􀅾"
-            case .divide: return "􀅿"
+            case .add: return withSpacesAround ? " + " : "+"
+            case .substract: return withSpacesAround ? " − " : "−"
+            case .multiply: return withSpacesAround ? " × " : "×"
+            case .divide: return withSpacesAround ? " ÷ " : "÷"
         }
     }
+    
+    
 }
