@@ -18,16 +18,14 @@ class CalculatorMotor: ObservableObject {
     /// Alternatively, query the `calculationsAreDue` property to know whether you should call `evaluate()`.
     @Published private(set) var result: Double = 0.0
     
-    /// Communicates whether the motor is capable of performing an evaluation in its current state.
-    ///
-    /// For example, if there is an even number of elements in the `calculationUnits` array, this property returns false.
-    @Published private(set) var canEvaluate: Bool = false
-    
     /// The collection of all calculations units that await evaluation.
     ///
     /// This array should contain `Double` elements on even and `OperationType` elements on odd indexes. (The array is 0-based.)
     /// Not respecting this rule results in undefined behavior and might cause a runtime exception.
     @Published private(set) var calculationUnits: [CalculationUnit] = []
+    
+    /// The full unevaluated expression, that a normal calculator would show.
+    @Published private(set) var fullExpressionString: String = ""
     
     /// Tells whether the next `CalculationUnit` added to the `calculationUnits` array should be an `OperationType`.
     var acceptsOperator: Bool {
@@ -49,15 +47,14 @@ class CalculatorMotor: ObservableObject {
     private var higherOrderOperatorsMayExist: Bool = true
     private var currentlyTypedNumber: String = ""
     
-    /// The full unevaluated expression, that a normal calculator would show.
-    @Published var fullExpressionString: String = ""
-    
     /// Attempts to attach an operation at the end of the `calculationUnits`array.
     ///
     /// - Parameter operation: The operation to attach.
     func appendOperation(of operation: OperationType) {
-        if let lastOperation = calculationUnits.last as? OperationType {
-            //If a value is expected, then remove the previous operation and replace with this.
+        //If a value is expected, then remove the previous operation and replace with this.
+        if currentlyTypedNumber == "",
+           let lastOperation = calculationUnits.last as? OperationType
+        {
             calculationUnits.removeLast()
             let lastOccurrenceRangeOfOperationToRemove = fullExpressionString.range(of: lastOperation.character(withSpacesAround: true), options: .backwards)!
             fullExpressionString.removeSubrange(lastOccurrenceRangeOfOperationToRemove)
@@ -98,7 +95,7 @@ class CalculatorMotor: ObservableObject {
     }
     
     func typeEqualSign() {
-        if acceptsValue {
+        if acceptsValue && calculationUnits.count > 0 {
             calculationUnits.append(Double(currentlyTypedNumber) ?? Double(currentlyTypedNumber.dropLast())!)
             self.annullCurrentlyTypedNumber()
             
@@ -129,7 +126,7 @@ class CalculatorMotor: ObservableObject {
     func evaluate() {
         if calculationUnits.count % 2 != 1 {
             //If the calculationUnits array contains and even number of elements, evaluation cannot be done.
-            return
+            fatalError("The motor cannot evaluate itself because there is an even number of elements!")
         }
         
         while calculationUnits.count != 1 {
@@ -159,6 +156,19 @@ class CalculatorMotor: ObservableObject {
         fullExpressionString = resultAsString
         
         higherOrderOperatorsMayExist = true
+    }
+    
+    func didOpenWithPreviousFinalResult(of previousResult: Double) {
+        if calculationUnits.count != 0 {
+            return
+        }
+        
+        calculationUnits = [previousResult]
+        result = previousResult
+        
+        NumberFormatter.regularNumberFormatter.string(from: previousResult)?.forEach {
+            self.type(digitOrDecimalSeparator: String($0))
+        }
     }
     
     /// Resets the calculator motor to the initial state.

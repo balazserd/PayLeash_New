@@ -13,8 +13,8 @@ extension NewTransactionView {
     class ViewModel: NSObject, ObservableObject {
         @Published var shortDescription: String = ""
         private var shortDescriptionBeforeVoiceRecognitionBegan: String = ""
-        var amount: Double = 0.0
-        var date: Date = Date()
+        @Published var amount: Double = 0.0
+        @Published var date: Date = Date()
         var category: TransactionCategory? = nil
         
         @Published var shouldRecordUserVoice: Bool = false

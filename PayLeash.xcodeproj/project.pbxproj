@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6619257425FA3B5C002F4D2A /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 6619257325FA3B5C002F4D2A /* Introspect */; };
 		6619257C25FA3C45002F4D2A /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6619257B25FA3C45002F4D2A /* PageScrollView.swift */; };
 		6622391E25F951F800CDFB7B /* AccountTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6622391D25F951F800CDFB7B /* AccountTab.swift */; };
 		6622392325F952B000CDFB7B /* PayLeashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6622392225F952B000CDFB7B /* PayLeashApp.swift */; };
@@ -133,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				665408CE25F29AA700125A4F /* SwiftDate in Frameworks */,
-				6619257425FA3B5C002F4D2A /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +347,6 @@
 			name = PayLeash;
 			packageProductDependencies = (
 				665408CD25F29AA700125A4F /* SwiftDate */,
-				6619257325FA3B5C002F4D2A /* Introspect */,
 			);
 			productName = PayLeash;
 			productReference = 66F9001E25E56411009F961F /* PayLeash.app */;
@@ -424,7 +421,6 @@
 			mainGroup = 66F9001525E56411009F961F;
 			packageReferences = (
 				665408CC25F29AA700125A4F /* XCRemoteSwiftPackageReference "SwiftDate" */,
-				6619257225FA3B5C002F4D2A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 66F9001F25E56411009F961F /* Products */;
 			projectDirPath = "";
@@ -841,14 +837,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6619257225FA3B5C002F4D2A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
-			};
-		};
 		665408CC25F29AA700125A4F /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
@@ -860,11 +848,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6619257325FA3B5C002F4D2A /* Introspect */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6619257225FA3B5C002F4D2A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
-			productName = Introspect;
-		};
 		665408CD25F29AA700125A4F /* SwiftDate */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 665408CC25F29AA700125A4F /* XCRemoteSwiftPackageReference "SwiftDate" */;

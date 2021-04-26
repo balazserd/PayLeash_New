@@ -16,16 +16,20 @@ struct CalculatorView: View {
         self.doneAction = doneAction
     }
     
-    @StateObject var motor = CalculatorMotor()
+    @StateObject private var motor = CalculatorMotor()
+    
+    @State private var viewHeight: CGFloat = 0.0
     
     var body: some View {
-        GeometryReader { proxy in
-            VStack {
-                Text(motor.fullExpressionString)
-                    .systemFont(size: 16)
-                    .foregroundColor(.secondary)
-                    .frame(maxWidth: .infinity, idealHeight: 20, alignment: .leading)
-                
+        VStack(spacing: 0) {
+            Text(motor.fullExpressionString)
+                .systemFont(size: 16)
+                .foregroundColor(.secondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(height: 25)
+                .padding(.bottom, 8)
+            
+            GeometryReader { proxy in
                 VStack {
                     calculatorRow(proxy: proxy,
                                   numberPadContent: {
@@ -69,15 +73,27 @@ struct CalculatorView: View {
                                   },
                                   operatorPadContent: {
                                     importantOperatorButton(name: "Done") {
+                                        motor.typeEqualSign()
                                         doneAction()
                                     }
                                   })
                 }
-                .aspectRatio(2, contentMode: .fit)
+                .anchorPreference(key: NewTransactionView.CalculatorHeightPreferenceKey.self,
+                                  value: .bounds,
+                                  transform: { proxy[$0].height })
             }
+            .onPreferenceChange(NewTransactionView.CalculatorHeightPreferenceKey.self, perform: { value in
+                self.viewHeight = value
+            })
+            .frame(height: viewHeight)
         }
         .onChange(of: motor.result, perform: { value in
             currentResult = value
+        })
+        .onAppear(perform: {
+            if !currentResult.isEqual(to: 0.0) {
+                motor.didOpenWithPreviousFinalResult(of: currentResult)
+            }
         })
     }
     
@@ -96,6 +112,7 @@ struct CalculatorView: View {
             }
             .shadow(color: Color.gray.opacity(0.2), radius: 5, x: 0, y: 2)
         }
+        .frame(height: 40)
     }
     
     private func numberButton(of number: Int) -> some View {

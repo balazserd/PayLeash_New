@@ -16,7 +16,6 @@ struct AccountTab: View {
     private var accounts: FetchedResults<Account>
     
     @State private var showBottomSheet: Bool = false
-    @State private var showBlurringOverlay: Bool = true
     @State private var dummyIntState: Int = 0
     
     var body: some View {
@@ -60,19 +59,7 @@ struct AccountTab: View {
             .navigationBarTitle("Accounts")
             .background(Colors.Gray.typed(.extraLightGray))
             .bottomSheet(isShown: $showBottomSheet) {
-                VStack {
-                    ComplexPicker(selection: $dummyIntState,
-                                  options:
-                                    [
-                                        Text("\(Image(systemName: "arrow.down.square.fill")) Expense"),
-                                        Text("\(Image(systemName: "arrow.up.square.fill")) Income"),
-                                        Text("\(Image(systemName: "arrow.up.arrow.down.square.fill")) Both")
-                                    ])
-                }
-                .padding(10)
-            }
-            .blurringOverlay(isShown: $showBlurringOverlay) {
-                Text("hello world!")
+                NewTransactionView()
             }
         }
     }

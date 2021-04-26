@@ -49,3 +49,12 @@ extension NumberFormatter {
         self.string(from: NSNumber(value: value))
     }
 }
+
+extension DateFormatter {
+    static let regularDateAndTimeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy hh:mm"
+        
+        return formatter
+    }()
+}
