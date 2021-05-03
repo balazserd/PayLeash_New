@@ -17,11 +17,11 @@ extension TransactionCategory {
     }
 
     @NSManaged public var icon: String?
-    @NSManaged public var id: UUID
+    @NSManaged public var id: Int16
     @NSManaged public var name: String?
     @NSManaged public var defaultIsMinus: Bool
     @NSManaged public var isUserCreated: Bool
-    @NSManaged public var transactions: Set<BalanceChange>?
+    @NSManaged public var transactions: Set<TransactionCategory>?
 
 }
 

@@ -1,0 +1,86 @@
+[
+    {
+      "id": "4068fca1-fa4e-4727-8abb-25ae70587525",
+      "icon": "🛒",
+      "name": "Groceries",
+      "defaultIsMinus": true,
+      "isUserCreated": false
+    },
+    {
+      "id": "abf172df-f522-47ec-864c-3692111e854f",
+      "icon": "🍽",
+      "name": "Restaurants and Bars",
+      "defaultIsMinus": true,
+      "isUserCreated": false
+    },
+    {
+      "id": "df88aa1e-1146-4866-bdea-9337b7f119d6",
+      "icon": "💪",
+      "name": "Sports",
+      "defaultIsMinus": true,
+      "isUserCreated": false
+    },
+    {
+      "id": "af6f3e16-77c2-47db-a76c-cfd948d32432",
+      "icon": "✈️",
+      "name": "Travel",
+      "defaultIsMinus": true,
+      "isUserCreated": false
+    },
+    {
+      "id": "bce1b23d-b4d3-465c-bb5a-a88d8339dff0",
+      "icon": "🚃",
+      "name": "Public Transport",
+      "defaultIsMinus": true,
+      "isUserCreated": false
+    },
+    {
+      "id": "e4e4ee07-326f-4d24-b546-272e53aa1291",
+      "icon": "🎓",
+      "name": "Education",
+      "defaultIsMinus": true,
+      "isUserCreated": false
+    },
+    {
+      "id": "85e9dfc8-7b14-4f18-9171-607823d751e7",
+      "icon": "∞",
+      "name": "Subscriptions",
+      "defaultIsMinus": true,
+      "isUserCreated": false
+    },
+    {
+      "id": "34ae6a94-dbda-40db-8ff2-e776c6dc6da5",
+      "icon": "💰",
+      "name": "Salary",
+      "defaultIsMinus": false,
+      "isUserCreated": false
+    },
+    {
+      "id": "052e326c-5d43-4295-8e11-7e9472cc12b5",
+      "icon": "🍻",
+      "name": "Going out",
+      "defaultIsMinus": true,
+      "isUserCreated": false
+    },
+    {
+      "id": "782126eb-7600-4a01-a00a-0c147f4e37cf",
+      "icon": "🐕",
+      "name": "Pets",
+      "defaultIsMinus": true,
+      "isUserCreated": false
+    },
+    {
+      "id": "c00384d2-04f5-4797-bf09-b9938da69744",
+      "icon": "📈",
+      "name": "Stock Earnings",
+      "defaultIsMinus": false,
+      "isUserCreated": false
+    },
+    {
+      "id": "84298a91-f9d0-4b4c-bb6f-673f780d40f3",
+      "icon": "💉",
+      "name": "Healthcare",
+      "defaultIsMinus": true,
+      "isUserCreated": false
+    }
+]

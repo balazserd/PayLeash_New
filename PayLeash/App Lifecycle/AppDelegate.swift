@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Self.sharedInstance = self
         
         generateUnsavedMockData()
+        AppInitializer.shared.loadCategoriesFromJson()
         
         return true
     }

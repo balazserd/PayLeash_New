@@ -28,6 +28,26 @@ struct NewTransactionView: View {
             descriptionFieldRow
             
             balanceAndTimeFieldsRow
+            
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Category")
+                    .systemFont(size: 12)
+                    .foregroundColor(Colors.Green.typed(.mediumGreen))
+                
+                HStack {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(Colors.Green.typed(.lightGreen))
+                            .frame(height: 28)
+                        
+                        TextField("", text: $model.shortDescription)
+                            .systemFont(size: 14, weight: .semibold)
+                            .foregroundColor(Colors.Green.typed(.prominentGreen))
+                            .frame(height: 28)
+                            .padding(.horizontal, 8)
+                    }
+                }
+            }
         }
         .padding(EdgeInsets(top: 0, leading: mainPadding, bottom: mainPadding, trailing: mainPadding))
     }
@@ -206,7 +226,6 @@ struct NewTransactionView: View {
                 RoundedRectangle(cornerRadius: 5)
                     .fill(Colors.Green.typed(.lightGreen))
                 
-                
                 Rectangle()
                     .fill(Colors.Green.typed(.lightGreen))
                     .frame(width: (UIScreen.main.bounds.size.width - 2 * mainPadding) * 0.5, height: 18)
@@ -221,7 +240,7 @@ struct NewTransactionView: View {
                 
                 RoundedRectangle(cornerRadius: 5)
                     .fill(Color.white)
-                    .frame(width: 8 /* Half of 10 spacing */,
+                    .frame(width: 8,
                            height: 25)
                     .offset(x: (UIScreen.main.bounds.size.width - 2 * mainPadding) * 0.5 - 5,
                             y: -25)
