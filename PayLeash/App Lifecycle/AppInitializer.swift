@@ -12,6 +12,8 @@ class AppInitializer {
     static private let latestVersionKey = "latestCategoriesJSONKey"
     static private(set) var shared = AppInitializer()
     
+    private init() { }
+    
     func loadCategoriesFromJson() {
         let versionFilePath = Bundle.main.path(forResource: "LatestCategoriesVersion", ofType: "json")!
         let path = Bundle.main.path(forResource: "Categories", ofType: "json")!

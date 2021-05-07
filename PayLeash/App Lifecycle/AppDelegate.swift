@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     /// The shared AppDelegate instance.
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         generateUnsavedMockData()
         AppInitializer.shared.loadCategoriesFromJson()
+        
+        FirebaseApp.configure()
         
         return true
     }

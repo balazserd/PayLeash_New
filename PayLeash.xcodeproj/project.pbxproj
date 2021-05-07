@@ -57,6 +57,11 @@
 		66F9004725E56413009F961F /* PayLeashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9004625E56413009F961F /* PayLeashUITests.swift */; };
 		66F9005925E56436009F961F /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F9005825E56436009F961F /* TransactionView.swift */; };
 		66FB76C12610854200273E7F /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FB76C02610854200273E7F /* CalculatorView.swift */; };
+		66FC1EC82645234500662E0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66FC1EC72645234500662E0F /* GoogleService-Info.plist */; };
+		66FC1EC92645234500662E0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66FC1EC72645234500662E0F /* GoogleService-Info.plist */; };
+		66FC1ECA2645234500662E0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66FC1EC72645234500662E0F /* GoogleService-Info.plist */; };
+		66FC1ECD2645242E00662E0F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 66FC1ECC2645242E00662E0F /* FirebaseAuth */; };
+		66FC1ED02645265C00662E0F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC1ECF2645265C00662E0F /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +137,9 @@
 		66F9004825E56413009F961F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66F9005825E56436009F961F /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		66FB76C02610854200273E7F /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		66FC1EC62645222900662E0F /* PayLeash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PayLeash.entitlements; sourceTree = "<group>"; };
+		66FC1EC72645234500662E0F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		66FC1ECF2645265C00662E0F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				665408CE25F29AA700125A4F /* SwiftDate in Frameworks */,
+				66FC1ECD2645242E00662E0F /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +285,11 @@
 		66F9002025E56411009F961F /* PayLeash */ = {
 			isa = PBXGroup;
 			children = (
+				66FC1EC72645234500662E0F /* GoogleService-Info.plist */,
+				66FC1EC62645222900662E0F /* PayLeash.entitlements */,
 				66FB76BF261080B000273E7F /* Storage */,
 				6622394B25F954C900CDFB7B /* App Lifecycle */,
+				66FC1ECE2645262C00662E0F /* Services */,
 				66C987BA25E5B01A00E0DE78 /* SwiftUI Extensions */,
 				665D625825E5769300E6D42A /* Model */,
 				66F9005725E56422009F961F /* Accounts Tab */,
@@ -341,6 +353,14 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		66FC1ECE2645262C00662E0F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				66FC1ECF2645265C00662E0F /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -359,6 +379,7 @@
 			name = PayLeash;
 			packageProductDependencies = (
 				665408CD25F29AA700125A4F /* SwiftDate */,
+				66FC1ECC2645242E00662E0F /* FirebaseAuth */,
 			);
 			productName = PayLeash;
 			productReference = 66F9001E25E56411009F961F /* PayLeash.app */;
@@ -433,6 +454,7 @@
 			mainGroup = 66F9001525E56411009F961F;
 			packageReferences = (
 				665408CC25F29AA700125A4F /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				66FC1ECB2645242E00662E0F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 66F9001F25E56411009F961F /* Products */;
 			projectDirPath = "";
@@ -456,6 +478,7 @@
 				66F9002B25E56413009F961F /* Assets.xcassets in Resources */,
 				665A460A264080DD00399A0F /* Categories.json in Resources */,
 				665A461C264094ED00399A0F /* LatestCategoriesVersion.json in Resources */,
+				66FC1EC82645234500662E0F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +486,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66FC1EC92645234500662E0F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66FC1ECA2645234500662E0F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +532,7 @@
 				665408C525F21DAB00125A4F /* View+Extensions.swift in Sources */,
 				66A3C44225FE2B7600A67A6D /* BalanceChange+CoreDataProperties.swift in Sources */,
 				66C987BC25E5B02900E0DE78 /* Transitions.swift in Sources */,
+				66FC1ED02645265C00662E0F /* AuthService.swift in Sources */,
 				665A460D2640826600399A0F /* TransactionCategory+CoreDataClass.swift in Sources */,
 				66A3C43F25FE2B7600A67A6D /* Account+CoreDataClass.swift in Sources */,
 				66A3C44525FE2B7600A67A6D /* Currency+CoreDataClass.swift in Sources */,
@@ -690,6 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PayLeash/PayLeash.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PayLeash/Preview Content\"";
 				DEVELOPMENT_TEAM = B9J6J6XB6U;
@@ -711,6 +738,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PayLeash/PayLeash.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PayLeash/Preview Content\"";
 				DEVELOPMENT_TEAM = B9J6J6XB6U;
@@ -861,6 +889,14 @@
 				version = 6.0.2;
 			};
 		};
+		66FC1ECB2645242E00662E0F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -868,6 +904,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 665408CC25F29AA700125A4F /* XCRemoteSwiftPackageReference "SwiftDate" */;
 			productName = SwiftDate;
+		};
+		66FC1ECC2645242E00662E0F /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66FC1ECB2645242E00662E0F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 

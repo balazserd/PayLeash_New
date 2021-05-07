@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct MainView: View {
     @State private var selectedPage: Int = 3
     @State private var showBottomSheet: Bool = false
+    
+    @StateObject private var authService = AuthService.shared
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [
@@ -40,6 +43,15 @@ struct MainView: View {
                 }
                 .tabItem {
                     Text("calculator")
+                }
+                
+                VStack {
+                    if authService.authorizationResultMessage != nil {
+                        Text(authService.authorizationResultMessage!.message)
+                    }
+                    
+                    SignInWithAppleButton(onRequest: { authService.transformSignInWithAppleRequest($0) },
+                                          onCompletion: { authService.handleSignInWithAppleResult($0) })
                 }
             }
             .accentColor(Colors.Green.typed(.mediumGreen))
